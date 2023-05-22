@@ -18,6 +18,8 @@ onErrorCaptured(
       hasError.value = true;
       // message.value = `Original Error: ${err.cause}`;
       message.value = `Original Error: MyError`;
+
+      console.log("stakc", err.stack);
       return false; // stop propagation
     }
     return true;
