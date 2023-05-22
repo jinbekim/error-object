@@ -6,17 +6,18 @@
 
 <script setup lang="ts">
 import { onErrorCaptured, type ComponentPublicInstance, ref } from "vue";
-import { CardError } from "../CustomError";
+import { CardError, MyError } from "../CustomError";
 const hasError = ref(false);
 const message = ref("");
 
 onErrorCaptured(
   (err: unknown, instance: ComponentPublicInstance | null, info: string) => {
-    if (err instanceof CardError) {
+    if (err instanceof MyError) {
       // only catch CardError
       // errror wrapper
       hasError.value = true;
-      message.value = `Original Error: ${err.cause}`;
+      // message.value = `Original Error: ${err.cause}`;
+      message.value = `Original Error: MyError`;
       return false; // stop propagation
     }
     return true;
