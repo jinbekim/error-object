@@ -16,6 +16,11 @@ export class MyError extends Error {
   }
 }
 
+// error의 종류가 다양해지는 것을 대비해서 여러 종류의 에러를 포함하는 혹은 대표하는 에러 클래스를 만들어서 사용할 수 있다.
+// error wrapper라고 한다.
+// e.g. 로그인 폼에서 발생할 수 잇는 syntax error, validation error, network error 등을 포함하는 에러 클래스
+// 하나로 login error라고 해서 한곳에서 전담해서 처리한다.
+// 대신 에러를 그렇게 던져줘야 한다.
 export class CardError extends MyError {
   cause: Error;
 

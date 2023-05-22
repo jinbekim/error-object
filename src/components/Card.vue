@@ -32,10 +32,11 @@ const handleClick = () => {
 
 const taskOne = () => {
   try {
+    // {..} //
     throw new PropertyRequiredError("Name");
   } catch (e) {
     if (e instanceof PropertyRequiredError) {
-      throw new CardError(`syntax error`, e);
+      throw new CardError(`property error`, e);
     }
     throw e;
   }
